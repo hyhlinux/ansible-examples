@@ -6,7 +6,28 @@
   - name: ensure apache is at the latest version
     debug:
       msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
+  - name: Display all variables/facts known for a host
+    debug:
+      var: hostvars[inventory_hostname]["ansible_default_ipv4"]["gateway"]
 
+# ➜  test01_playbook git:(test_ansible01_playbook) ✗ ansible-playbook test_debug.yml
+#
+# PLAY [tp] **********************************************************************************************************************************************************************************************************************************
+#
+# TASK [Gathering Facts] *********************************************************************************************************************************************************************************************************************
+# ok: [tplinux.cn]
+#
+# TASK [ensure apache is at the latest version] **********************************************************************************************************************************************************************************************
 # ok: [tplinux.cn] => {
-#     "msg": "System tplinux.cn has gateway xx.141.xx.1"
+#     "msg": "System tplinux.cn has gateway 102.141.xx.1"
 # }
+#
+# TASK [Display all variables/facts known for a host] ****************************************************************************************************************************************************************************************
+# ok: [tplinux.cn] => {
+#     "hostvars[inventory_hostname][\"ansible_default_ipv4\"][\"gateway\"]": "102.141.xx.1"
+# }
+#
+# PLAY RECAP *********************************************************************************************************************************************************************************************************************************
+# tplinux.cn                 : ok=3    changed=0    unreachable=0    failed=0
+#
+# ➜  test01_playbook git:(test_ansible01_playbook) ✗
