@@ -1,0 +1,13 @@
+---
+#testing copy
+#if file changed, will exec
+- hosts:       tp
+  remote_user: root
+  tasks:
+  - name:      will copy foo.conf to tp ser
+    copy:
+        src:   /Users/apple/github/ansible-examples/test01_playbook/test/foo.conf
+        dest:  /tmp/foo.conf
+        owner: root
+        group: root
+        mode:  0644

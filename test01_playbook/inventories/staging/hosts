@@ -1,0 +1,8 @@
+[tp]
+tplinux.cn		ansible_ssh_user=root
+
+[mongodb]
+tplinux.cn		ansible_ssh_user=root
+
+[test]
+tplinux.cn		ansible_ssh_user=root
