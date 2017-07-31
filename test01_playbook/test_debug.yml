@@ -1,0 +1,12 @@
+---
+#testing debug
+- hosts: tp
+  remote_user: root
+  tasks:
+  - name: ensure apache is at the latest version
+    debug:
+      msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
+
+# ok: [tplinux.cn] => {
+#     "msg": "System tplinux.cn has gateway xx.141.xx.1"
+# }
