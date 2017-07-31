@@ -7,7 +7,7 @@
   - name:      will copy foo.conf to tp ser
     copy:
         src:   /Users/apple/github/ansible-examples/test01_playbook/test/foo.conf
-        dest:  /tmp/foo.conf
+        dest:  /{{app_dir}}/foo.conf
         owner: root
         group: root
         mode:  0644

@@ -1,0 +1,5 @@
+---
+#all 所有模块的配置
+app_dir:      /home/apps
+ansible_user: root
+inventory:    staging
