@@ -1,0 +1,22 @@
+---
+#testing copy
+#if file changed, will exec
+- hosts:           tp
+  remote_user:     root
+  vars:
+     app_dir:      /home/app
+  tasks:
+  - name:          will test cmd ls return
+    shell:         ls
+    register:      result
+    ignore_errors: True
+
+  - name:          will test cmd echo return
+    shell:         echo "{{ result.stdout }}"
+    when:          result.rc == 5
+
+  - debug:         msg="{{ result.stdout }}"
+  # - name:        will test template
+  #   template:
+  #       src:     /Users/apple/github/ansible-examples/test01_playbook/test/index.html.j2
+  #       dest:    /tmp/index.html
